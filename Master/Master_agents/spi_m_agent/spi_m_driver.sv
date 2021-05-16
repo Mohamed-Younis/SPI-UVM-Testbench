@@ -1,14 +1,14 @@
 `ifndef SPI_M_DRIVER
 `define SPI_M_DRIVER
 
-`define D_M_IF m_driver_interface.driver_mp.driver_cb
+`define D_M_IF m_driver_interface.driver_cb
 
 class spi_m_driver extends uvm_driver #(spi_seq_item);
 
   `uvm_component_utils(spi_m_driver)
 
   spi_seq_item trn;
-  virtual spi_m_interface m_driver_interface;
+  virtual spi_m_interface.driver_mp m_driver_interface;
   spi_m_agent_config m_agent_config;
 
   function new(string name = "spi_m_driver", uvm_component parent = null);
@@ -27,18 +27,27 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
 
     forever begin
       seq_item_port.get_next_item(trn);
-      @(m_driver_interface.driver_cb);
-      `D_M_IF.i_TX_DV <= 1;
-      `D_M_IF.i_TX_Byte <= trn.data_m;
-      @(m_driver_interface.driver_cb);
+      forever begin
+        @(posedge `D_M_IF);
+        // `uvm_info(get_full_name(),$sformatf("dv %0d",`D_M_IF.i_TX_DV), UVM_LOW)
+        // `uvm_info(get_full_name(),$sformatf("ready %0d",`D_M_IF.o_TX_Ready), UVM_LOW)
+        if(`D_M_IF.o_TX_Ready) begin
+          `D_M_IF.i_TX_DV <= 1;
+          `D_M_IF.i_TX_Byte <= trn.data_m;
+          @(posedge `D_M_IF);
+          break;
+        end
+      end
       seq_item_port.item_done(trn);
-      `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
       `D_M_IF.i_TX_DV <= 0;
+      `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
     end
   endtask : run_phase
 
   task do_reset();
     m_driver_interface.i_Rst_L = 0;
+    `D_M_IF.i_TX_DV <= 0;
+    `D_M_IF.i_TX_Byte <= 0;
     repeat(2)
       @(m_driver_interface.i_Clk);
     m_driver_interface.i_Rst_L = 1;

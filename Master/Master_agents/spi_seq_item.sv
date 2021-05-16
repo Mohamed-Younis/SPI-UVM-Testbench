@@ -26,8 +26,8 @@ class spi_seq_item extends uvm_sequence_item;
 	function string convert2string();
 		string s;
 		$sformat(s, "%s \n", super.convert2string());
-		$sformat(s, "%s \n data_m: %0h \n data_ms: %0h \n" ,
-									s, data_m, data_ms);
+		$sformat(s, "%s \n data_m: %0h = %b \n data_ms: %0h = %b \n" ,
+									s, data_m, data_m, data_ms, data_ms);
 		return s;
 	endfunction : convert2string
 

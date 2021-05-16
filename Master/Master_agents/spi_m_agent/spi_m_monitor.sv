@@ -1,7 +1,7 @@
 `ifndef SPI_M_MONITOR
 `define SPI_M_MONITOR
 
-`define M_M_IF m_monitor_interface.monitor_mp.monitor_cb
+`define M_M_IF m_monitor_interface.monitor_cb
 
 
 class spi_m_monitor extends uvm_monitor;
@@ -10,7 +10,7 @@ class spi_m_monitor extends uvm_monitor;
 
   uvm_analysis_port #(spi_seq_item) monitor_ap;
   spi_m_agent_config m_agent_config;
-  virtual spi_m_interface m_monitor_interface;
+  virtual spi_m_interface.monitor_mp m_monitor_interface;
   spi_seq_item trn;
 
   function new(string name = "spi_m_monitor", uvm_component parent = null);
@@ -26,7 +26,21 @@ class spi_m_monitor extends uvm_monitor;
   endfunction : build_phase
 
   task run_phase(uvm_phase phase);
-    
+  forever begin
+    trn = spi_seq_item::type_id::create("trn");
+    forever begin
+      @(posedge `M_M_IF)
+      if(`M_M_IF.i_TX_DV ) begin
+      trn.data_m = `M_M_IF.i_TX_Byte;
+      end 
+      if(`M_M_IF.o_RX_DV) begin
+      trn.data_ms = `M_M_IF.o_RX_Byte;
+      break;
+      end 
+    end
+    `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
+  end
+
   endtask : run_phase
 endclass 
 

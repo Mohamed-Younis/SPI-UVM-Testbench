@@ -9,8 +9,8 @@ interface spi_ms_interface();
 
   clocking driver_cb @(negedge SPI_Clk);
     default input #1 output #1;
-    input SPI_MISO;
-    output SPI_MOSI;
+    output SPI_MISO;
+    input SPI_MOSI;
   endclocking
 
   clocking monitor_cb @(posedge SPI_Clk);

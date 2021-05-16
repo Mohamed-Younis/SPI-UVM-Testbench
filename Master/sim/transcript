@@ -1,5 +1,5 @@
 # vsim -c master_tb_top_opt "+UVM_TESTNAME=spi_base_test" "+UVM_VERBOSITY=UVM_LOW" -do "run -all; quit -f" 
-# Start time: 15:15:30 on May 16,2021
+# Start time: 22:24:41 on May 16,2021
 # //  Questa Sim-64
 # //  Version 10.6c win64 Jul 26 2017
 # //
@@ -26,15 +26,6 @@
 # Loading work.master_tb_top(fast)
 # Loading work.SPI_Master_With_Single_CS(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
-# ** Warning: (vsim-8637) ../Master_agents/spi_ms_agent/spi_ms_monitor.sv(37): A modport ('monitor_mp') should not be used in a hierarchical path.
-#    Time: 0 ns  Iteration: 0  Region: /spi_ms_agent_pkg File: ../Master_agents/spi_ms_agent/spi_ms_agent_pkg.sv
-# ** Warning: (vsim-3838) ../Master_interfaces/spi_ms_interface.sv(6): Variable '/master_tb_top/ms_interface/SPI_MOSI' written by continuous and procedural assignments. 
-# One of the assignments is implicit. See ../Testbench/master_tb_top.sv(10).
-#    Time: 0 ns  Iteration: 0  Instance: /master_tb_top/ms_interface File: ../Master_interfaces/spi_ms_interface.sv
-# ** Warning: (vsim-8637) ../Master_agents/spi_m_agent/spi_m_driver.sv(31): A modport ('driver_mp') should not be used in a hierarchical path.
-#    Time: 0 ns  Iteration: 0  Region: /spi_m_agent_pkg::spi_m_driver File: ../Master_agents/spi_m_agent/spi_m_agent_pkg.sv
-# ** Warning: (vsim-8637) ../Master_agents/spi_m_agent/spi_m_driver.sv(32): A modport ('driver_mp') should not be used in a hierarchical path.
-#    Time: 0 ns  Iteration: 0  Region: /spi_m_agent_pkg::spi_m_driver File: ../Master_agents/spi_m_agent/spi_m_agent_pkg.sv
 # Loading E:/Setup/Questa/uvm-1.1d\win64\uvm_dpi.dll
 # run -all
 # ----------------------------------------------------------------
@@ -58,22 +49,27 @@
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
 # UVM_INFO @ 0: reporter [RNTST] Running test spi_base_test...
-# UVM_INFO ../Master_agents/spi_m_agent/spi_m_driver.sv(35) @ 25: uvm_test_top.env.m_agent.driver [uvm_test_top.env.m_agent.driver]  
+# UVM_INFO ../Master_agents/spi_m_agent/spi_m_driver.sv(43) @ 25: uvm_test_top.env.m_agent.driver [uvm_test_top.env.m_agent.driver]  
 #  
-#  data_m: 35 
-#  data_ms: c9 
+#  data_m: bf = 10111111 
+#  data_ms: 3a = 00111010 
 # 
-# UVM_INFO ../Master_agents/spi_ms_agent/spi_ms_monitor.sv(42) @ 335: uvm_test_top.env.ms_agent.monitor [uvm_test_top.env.ms_agent.monitor]  
+# UVM_INFO ../Master_agents/spi_ms_agent/spi_ms_monitor.sv(48) @ 335: uvm_test_top.env.ms_agent.monitor [uvm_test_top.env.ms_agent.monitor]  
 #  
-#  data_m: 0 
-#  data_ms: 35 
+#  data_m: bf = 10111111 
+#  data_ms: 3a = 00111010 
 # 
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 1025: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../Master_agents/spi_m_agent/spi_m_monitor.sv(41) @ 345: uvm_test_top.env.m_agent.monitor [uvm_test_top.env.m_agent.monitor]  
+#  
+#  data_m: bf = 10111111 
+#  data_ms: 3a = 00111010 
+# 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 1315: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    4
+# UVM_INFO :    5
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -81,8 +77,9 @@
 # [RNTST]     1
 # [TEST_DONE]     1
 # [uvm_test_top.env.m_agent.driver]     1
+# [uvm_test_top.env.m_agent.monitor]     1
 # [uvm_test_top.env.ms_agent.monitor]     1
 # ** Note: $finish    : E:/Setup/Questa/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 1025 ns  Iteration: 54  Instance: /master_tb_top
-# End time: 15:15:33 on May 16,2021, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 4
+#    Time: 1315 ns  Iteration: 54  Instance: /master_tb_top
+# End time: 22:24:44 on May 16,2021, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0

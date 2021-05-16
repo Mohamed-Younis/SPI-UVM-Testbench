@@ -7,19 +7,19 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dE:/D7/Digital/SPI project/My_SPI/Master/sim
+Z0 dE:/D7/Digital/SPI project/SPI-UVM-Testbench/Master/sim
 vmaster_tb_top
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
 Z2 DXx6 mtiUvm 7 uvm_pkg 0 22 oMKUklN?>LE6@MJe7=2><1
-Z3 DXx4 work 20 spi_common_agent_pkg 0 22 W8_Y?ZidbT9[hH^<njgkY3
-Z4 DXx4 work 15 spi_m_agent_pkg 0 22 lnbFomU8@WgTPP0mUXEi?0
-Z5 DXx4 work 16 spi_ms_agent_pkg 0 22 3RAGlk3^44c6E[KlKbj2_1
-Z6 DXx4 work 11 spi_env_pkg 0 22 >gU>hA6N`EE8kUEXl27@`3
-DXx4 work 12 spi_test_pkg 0 22 ]D2XHDP=i@fL<BjV7gHS42
-Z7 !s110 1621170927
+Z3 DXx4 work 20 spi_common_agent_pkg 0 22 n8J4EabHkX0Q9SfBL6oLC0
+Z4 DXx4 work 15 spi_m_agent_pkg 0 22 IUE7OeTgV=>FF^FazeWzT0
+Z5 DXx4 work 16 spi_ms_agent_pkg 0 22 eQi;mHO1YW^_ggKE99j>=3
+Z6 DXx4 work 11 spi_env_pkg 0 22 4BzTdR[ZO[`^^d8g]KQoV0
+DXx4 work 12 spi_test_pkg 0 22 VNb9_=^zEoESk9]:kS?PI2
+Z7 !s110 1621196678
 !i10b 1
 !s100 KlKRk<JYH?SWMKa9W;e5;2
-ICgeI=`eDPTQ:mmEmA6?XF0
+I^d;zCM=Tnc8_;zWZZlmn_1
 Z8 VDg1SIo80bB@j0V0VzS_@n1
 !s105 master_tb_top_sv_unit
 S1
@@ -32,7 +32,7 @@ Z9 OL;L;10.6c;65
 r1
 !s85 0
 31
-Z10 !s108 1621170926.000000
+Z10 !s108 1621196677.000000
 Z11 !s107 ../Master_test/spi_base_test.sv|../Master_env/spi_env.sv|../Master_agents/spi_ms_agent/spi_ms_agent.sv|../Master_agents/spi_ms_agent/spi_ms_monitor.sv|../Master_agents/spi_ms_agent/spi_ms_driver.sv|../Master_agents/spi_ms_agent/spi_ms_agent_config.sv|../Master_agents/spi_m_agent/spi_m_agent.sv|../Master_agents/spi_m_agent/spi_m_monitor.sv|../Master_agents/spi_m_agent/spi_m_driver.sv|../Master_agents/spi_m_agent/spi_m_agent_config.sv|../Master_agents/spi_sequence.sv|../Master_agents/spi_seq_item.sv|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|E:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|../Testbench/master_tb_top.sv|../Dut/SPI_Master_With_Single_CS.v|../Dut/SPI_Master.v|../Master_test/spi_test_pkg.sv|../Master_env/spi_env_pkg.sv|../Master_agents/spi_ms_agent/spi_ms_agent_pkg.sv|../Master_agents/spi_m_agent/spi_m_agent_pkg.sv|../Master_agents/spi_common_agent_pkg.sv|../Master_interfaces/spi_ms_interface.sv|../Master_interfaces/spi_m_interface.sv|
 Z12 !s90 +incdir+../Master_interfaces|../Master_interfaces/spi_m_interface.sv|../Master_interfaces/spi_ms_interface.sv|+incdir+../Master_agents|../Master_agents/spi_common_agent_pkg.sv|+incdir+../Master_agents/spi_m_agent|../Master_agents/spi_m_agent/spi_m_agent_pkg.sv|+incdir+../Master_agents/spi_ms_agent|../Master_agents/spi_ms_agent/spi_ms_agent_pkg.sv|+incdir+../Master_env|../Master_env/spi_env_pkg.sv|+incdir+../Master_test|../Master_test/spi_test_pkg.sv|../Dut/SPI_Master.v|../Dut/SPI_Master_With_Single_CS.v|../Testbench/master_tb_top.sv|
 !i113 0
@@ -40,8 +40,8 @@ Z13 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z14 !s92 +incdir+../Master_interfaces +incdir+../Master_agents +incdir+../Master_agents/spi_m_agent +incdir+../Master_agents/spi_ms_agent +incdir+../Master_env +incdir+../Master_test -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z15 tCvgOpt 0
 Tmaster_tb_top_opt
-!s110 1621170928
-VH;kC5EV<Z[?9EP1f`g^QR0
+!s110 1621196679
+V@dPTZ7ZcEQU?RfMAR8Qal0
 04 13 4 work master_tb_top fast 0
 o
 R15
@@ -50,28 +50,28 @@ OL;O;10.6c;65
 Xspi_common_agent_pkg
 R1
 R2
-R7
+Z16 !s110 1621196677
 !i10b 1
-!s100 ?7@9IcT0c;GLLGe1^;e6d1
-IW8_Y?ZidbT9[hH^<njgkY3
-VW8_Y?ZidbT9[hH^<njgkY3
+!s100 ClTKN0FW;[jJ_`PYKn`]T3
+In8J4EabHkX0Q9SfBL6oLC0
+Vn8J4EabHkX0Q9SfBL6oLC0
 S1
 R0
-w1621168728
+w1621196336
 8../Master_agents/spi_common_agent_pkg.sv
 F../Master_agents/spi_common_agent_pkg.sv
-Z16 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z17 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z18 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z19 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z20 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z21 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z22 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z23 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z24 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z25 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z26 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z27 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Z17 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z18 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z19 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z20 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z21 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z22 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z23 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z24 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z25 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z26 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z27 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z28 FE:/Setup/Questa/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
 F../Master_agents/spi_seq_item.sv
 F../Master_agents/spi_sequence.sv
 L0 1
@@ -95,14 +95,13 @@ R5
 R7
 !i10b 1
 !s100 f[>V8:d8IUff0jMRVZRJN3
-I>gU>hA6N`EE8kUEXl27@`3
-V>gU>hA6N`EE8kUEXl27@`3
+I4BzTdR[ZO[`^^d8g]KQoV0
+V4BzTdR[ZO[`^^d8g]KQoV0
 S1
 R0
 w1621165379
 8../Master_env/spi_env_pkg.sv
 F../Master_env/spi_env_pkg.sv
-R16
 R17
 R18
 R19
@@ -114,6 +113,7 @@ R24
 R25
 R26
 R27
+R28
 F../Master_env/spi_env.sv
 L0 1
 R9
@@ -128,21 +128,20 @@ R13
 R14
 R15
 Xspi_m_agent_pkg
-Z28 !s115 spi_m_interface
+Z29 !s115 spi_m_interface
 R1
 R2
 R3
 R7
 !i10b 1
-!s100 `fCR24Y>dnTb80TD8jQ``1
-IlnbFomU8@WgTPP0mUXEi?0
-VlnbFomU8@WgTPP0mUXEi?0
+!s100 J_=aDg8gX3:_CILmPSiL71
+IIUE7OeTgV=>FF^FazeWzT0
+VIUE7OeTgV=>FF^FazeWzT0
 S1
 R0
-w1621170799
+w1621195754
 8../Master_agents/spi_m_agent/spi_m_agent_pkg.sv
 F../Master_agents/spi_m_agent/spi_m_agent_pkg.sv
-R16
 R17
 R18
 R19
@@ -154,6 +153,7 @@ R24
 R25
 R26
 R27
+R28
 F../Master_agents/spi_m_agent/spi_m_agent_config.sv
 F../Master_agents/spi_m_agent/spi_m_driver.sv
 F../Master_agents/spi_m_agent/spi_m_monitor.sv
@@ -172,7 +172,7 @@ R14
 R15
 Yspi_m_interface
 R1
-Z29 !s110 1621170926
+R16
 !i10b 1
 !s100 J[G7Og]Od:PcoAQDZf?kG3
 I7_z5lh0SVNG;ZNSKioT@M0
@@ -248,15 +248,14 @@ R2
 R3
 R7
 !i10b 1
-!s100 Xm33d_5BR1QL_^:?i5l[60
-I3RAGlk3^44c6E[KlKbj2_1
-V3RAGlk3^44c6E[KlKbj2_1
+!s100 Xf>cMb63[Hjh9<NjiI@ID3
+IeQi;mHO1YW^_ggKE99j>=3
+VeQi;mHO1YW^_ggKE99j>=3
 S1
 R0
-w1621170923
+w1621196668
 8../Master_agents/spi_ms_agent/spi_ms_agent_pkg.sv
 F../Master_agents/spi_ms_agent/spi_ms_agent_pkg.sv
-R16
 R17
 R18
 R19
@@ -268,6 +267,7 @@ R24
 R25
 R26
 R27
+R28
 F../Master_agents/spi_ms_agent/spi_ms_agent_config.sv
 F../Master_agents/spi_ms_agent/spi_ms_driver.sv
 F../Master_agents/spi_ms_agent/spi_ms_monitor.sv
@@ -286,15 +286,15 @@ R14
 R15
 Yspi_ms_interface
 R1
-R29
+R16
 !i10b 1
-!s100 MilFB6LcAH`I_TgiG6_>c3
-IX?U1D7P9FGdSmGe`@b1cZ0
+!s100 EX;nOfAoF2SA4g<zS36Vo0
+IH=kHf8Va?]KLe?ATY748d3
 R8
 !s105 spi_ms_interface_sv_unit
 S1
 R0
-w1621093347
+w1621195393
 8../Master_interfaces/spi_ms_interface.sv
 F../Master_interfaces/spi_ms_interface.sv
 L0 1
@@ -311,7 +311,7 @@ R14
 R15
 Xspi_test_pkg
 R31
-R28
+R29
 R1
 R2
 R3
@@ -320,15 +320,14 @@ R5
 R6
 R7
 !i10b 1
-!s100 XznlHWL>3_4d@N5a98czT1
-I]D2XHDP=i@fL<BjV7gHS42
-V]D2XHDP=i@fL<BjV7gHS42
+!s100 >;YJJ_?82E`h4>JXHIDoI0
+IVNb9_=^zEoESk9]:kS?PI2
+VVNb9_=^zEoESk9]:kS?PI2
 S1
 R0
-w1621170900
+w1621193545
 8../Master_test/spi_test_pkg.sv
 F../Master_test/spi_test_pkg.sv
-R16
 R17
 R18
 R19
@@ -340,6 +339,7 @@ R24
 R25
 R26
 R27
+R28
 F../Master_test/spi_base_test.sv
 L0 1
 R9
