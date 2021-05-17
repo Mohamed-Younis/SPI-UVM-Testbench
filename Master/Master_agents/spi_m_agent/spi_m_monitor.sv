@@ -38,7 +38,9 @@ class spi_m_monitor extends uvm_monitor;
       break;
       end 
     end
-    `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
+    `uvm_info(get_full_name(),trn.convert2string(), UVM_HIGH)
+    monitor_ap.write(trn);
+
   end
 
   endtask : run_phase

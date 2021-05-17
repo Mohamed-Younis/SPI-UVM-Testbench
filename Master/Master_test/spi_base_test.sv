@@ -37,6 +37,7 @@ class spi_base_test extends uvm_test;
 
   task run_phase(uvm_phase phase);
     phase.raise_objection(this, "----------------------TEST STAETED----------------------");
+   repeat(10)
     fork
       seq_m.start(env.m_agent.sequencer);
       seq_ms.start(env.ms_agent.sequencer);

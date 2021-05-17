@@ -29,9 +29,8 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
       seq_item_port.get_next_item(trn);
       forever begin
         @(posedge `D_M_IF);
-        // `uvm_info(get_full_name(),$sformatf("dv %0d",`D_M_IF.i_TX_DV), UVM_LOW)
-        // `uvm_info(get_full_name(),$sformatf("ready %0d",`D_M_IF.o_TX_Ready), UVM_LOW)
         if(`D_M_IF.o_TX_Ready) begin
+          `uvm_info(get_full_name(),$sformatf("\ndata_m  = %h \n", trn.data_m), UVM_HIGH)
           `D_M_IF.i_TX_DV <= 1;
           `D_M_IF.i_TX_Byte <= trn.data_m;
           @(posedge `D_M_IF);
@@ -40,7 +39,6 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
       end
       seq_item_port.item_done(trn);
       `D_M_IF.i_TX_DV <= 0;
-      `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
     end
   endtask : run_phase
 

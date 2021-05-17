@@ -15,7 +15,7 @@ class spi_seq_item extends uvm_sequence_item;
 	function void do_copy( uvm_object rhs);
 		spi_seq_item to_copy;
 		if (!$cast(to_copy, rhs)) begin 
-		`uvm_fatal("do_copy", "non matching transaction type");
+		`uvm_fatal(get_full_name(), "non matching transaction type");
 		end
 		super.do_copy(rhs);
 		this.data_m  = to_copy.data_m;
@@ -23,11 +23,22 @@ class spi_seq_item extends uvm_sequence_item;
 
 	endfunction : do_copy
 
+  function bit do_compare(uvm_object rhs, uvm_comparer comparer);
+    spi_seq_item to_compare;
+    if (!$cast(to_compare, rhs)) begin
+      return 0;
+    end
+    return (super.do_compare(rhs, comparer) &&
+            this.data_m == to_compare.data_m &&
+            this.data_ms == to_compare.data_ms
+            );
+  endfunction
+
 	function string convert2string();
 		string s;
 		$sformat(s, "%s \n", super.convert2string());
-		$sformat(s, "%s \n data_m: %0h = %b \n data_ms: %0h = %b \n" ,
-									s, data_m, data_m, data_ms, data_ms);
+		$sformat(s, "%s \n data_m:  %h  \n data_ms: %h \n" ,
+									s, data_m, data_ms);
 		return s;
 	endfunction : convert2string
 

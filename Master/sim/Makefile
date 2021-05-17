@@ -16,4 +16,4 @@ sv:
 	vopt master_tb_top -o master_tb_top_opt
 
 sim:
-	vsim -c master_tb_top_opt +UVM_TESTNAME=spi_base_test +UVM_VERBOSITY=UVM_LOW -do "run -all; quit -f"
+	vsim -c master_tb_top_opt +UVM_TESTNAME=spi_base_test +UVM_VERBOSITY=UVM_HIGH -do "run -all; quit -f"

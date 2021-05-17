@@ -28,12 +28,6 @@ class spi_ms_monitor extends uvm_monitor;
   task run_phase(uvm_phase phase);
     forever begin
       trn = spi_seq_item::type_id::create("trn");
-      /*#5;
-      `uvm_info(get_full_name(),$sformatf("CS %b",ms_monitor_interface.SPI_CS_n), UVM_LOW)
-      `uvm_info(get_full_name(),$sformatf("MISO %b",ms_monitor_interface.SPI_MISO), UVM_LOW)
-      `uvm_info(get_full_name(),$sformatf("MOSI %b",ms_monitor_interface.SPI_MOSI), UVM_LOW)
-      `uvm_info(get_full_name(),$sformatf("SPI_Clk %b",ms_monitor_interface.SPI_Clk), UVM_LOW)
-*/
       wait(!ms_monitor_interface.SPI_CS_n);
       fork
         foreach(trn.data_m[i]) begin
@@ -45,8 +39,10 @@ class spi_ms_monitor extends uvm_monitor;
           trn.data_ms[i] = `M_MS_IF.SPI_MISO;
         end
       join
-      `uvm_info(get_full_name(),trn.convert2string(), UVM_LOW)
-     // wait(ms_monitor_interface.monitor_mp.SPI_CS_n);
+      `uvm_info(get_full_name(),trn.convert2string(), UVM_HIGH)
+      monitor_ap.write(trn);
+
+     wait(ms_monitor_interface.monitor_mp.SPI_CS_n);
     end
   endtask : run_phase
 endclass 
