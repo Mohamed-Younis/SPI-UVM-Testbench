@@ -3,11 +3,12 @@ module master_tb_top();
   import spi_test_pkg::*;
 
   bit Clk;
+  localparam mode = 0;
 
   spi_m_interface m_interface(Clk);
   spi_ms_interface ms_interface();
 
-  SPI_Master_With_Single_CS dut (
+  SPI_Master_With_Single_CS #(.SPI_MODE(mode))dut  (
     .i_Clk(Clk),
     .i_Rst_L(m_interface.i_Rst_L),
     .i_TX_Count(2'd1),  
@@ -29,6 +30,7 @@ module master_tb_top();
   initial begin
     uvm_config_db #(virtual spi_m_interface)::set(null, "uvm_test_top", "a_m_interface", m_interface);
     uvm_config_db #(virtual spi_ms_interface)::set(null, "uvm_test_top", "a_ms_interface", ms_interface);
+    uvm_config_db #(int)::set(null, "uvm_test_top", "mode", mode);
   end
 
   initial begin

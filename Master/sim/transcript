@@ -1,5 +1,5 @@
 # vsim -c master_tb_top_opt "+UVM_TESTNAME=spi_base_test" "+UVM_VERBOSITY=UVM_HIGH" -do "run -all; quit -f" 
-# Start time: 15:29:41 on May 18,2021
+# Start time: 21:18:48 on May 18,2021
 # //  Questa Sim-64
 # //  Version 10.6c win64 Jul 26 2017
 # //
@@ -246,5 +246,5 @@
 # [uvm_test_top.env.scoreboard]    10
 # ** Note: $finish    : E:/Setup/Questa/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 4795 ns  Iteration: 54  Instance: /master_tb_top
-# End time: 15:29:44 on May 18,2021, Elapsed time: 0:00:03
+# End time: 21:18:51 on May 18,2021, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 2

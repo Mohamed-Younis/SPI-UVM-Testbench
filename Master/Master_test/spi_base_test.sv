@@ -30,6 +30,12 @@ class spi_base_test extends uvm_test;
     if(!uvm_config_db #(virtual spi_ms_interface)::get(this, "", "a_ms_interface", a_ms_config.ms_interface))begin
       `uvm_fatal(get_full_name(), "couldn't get the a_ms_interface from top")
     end
+
+    if(!uvm_config_db #(int)::get(this, "", "mode", a_ms_config.mode))begin
+      `uvm_fatal(get_full_name(), "couldn't get the a_ms_interface from top")
+    end
+
+
     uvm_config_db #(spi_ms_agent_config)::set(this, "env.ms_agent*", "ms_agent_config",a_ms_config);
       
 

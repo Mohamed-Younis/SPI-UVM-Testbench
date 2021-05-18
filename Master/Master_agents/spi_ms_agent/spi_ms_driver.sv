@@ -26,7 +26,7 @@ class spi_ms_driver extends uvm_driver #(spi_seq_item);
     //#1 // the SPI_CS_n signal start 0 at time 0 so we wait for it to change 
     forever begin
       seq_item_port.get_next_item(trn);
-      ms_driver_interface.SPI_MISO <= trn.data_ms[7];
+      ms_driver_interface.SPI_MISO <= trn.data_ms[7]; // preload the first bit since the first in mood0 edge is the sampling edge
       wait(!ms_driver_interface.SPI_CS_n)
       `uvm_info(get_full_name(),$sformatf("\ndata_ms = %h \n", trn.data_ms), UVM_HIGH)
       for (int i = 6; i >= 0; i--) begin

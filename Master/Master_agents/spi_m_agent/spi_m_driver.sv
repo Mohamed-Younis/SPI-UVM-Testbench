@@ -8,7 +8,7 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
   `uvm_component_utils(spi_m_driver)
 
   spi_seq_item trn;
-  virtual spi_m_interface.driver_mp m_driver_interface;
+  virtual interface spi_m_interface.driver_mp m_driver_interface;
   spi_m_agent_config m_agent_config;
 
   function new(string name = "spi_m_driver", uvm_component parent = null);

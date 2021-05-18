@@ -21,6 +21,12 @@ class spi_ms_agent extends uvm_agent;
     if(!uvm_config_db #(spi_ms_agent_config)::get(this, "", "ms_agent_config", a_config)) begin
       `uvm_fatal(get_full_name(), "Can't get config for agent ms");
     end    
+
+    if(a_config.mode == 1) begin 
+    spi_ms_driver::type_id::set_type_override(spi_ms_driver_1::get_type());
+    spi_ms_monitor::type_id::set_type_override(spi_ms_monitor_1::get_type());
+    end
+
     if(a_config.active == 1) begin 
       driver = spi_ms_driver::type_id::create("driver", this);
       sequencer = spi_ms_sequencer::type_id::create("sequencer", this);
