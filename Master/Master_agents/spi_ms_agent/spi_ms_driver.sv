@@ -33,7 +33,6 @@ class spi_ms_driver extends uvm_driver #(spi_seq_item);
         @(`D_MS_IF)
         `D_MS_IF.SPI_MISO <= trn.data_ms[i];
       end
-      @(negedge ms_driver_interface.SPI_Clk)
       wait(ms_driver_interface.SPI_CS_n)
       seq_item_port.item_done(trn);
     end

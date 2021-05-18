@@ -29,6 +29,6 @@ interface spi_m_interface (input logic i_Clk );
     input o_RX_DV;
   endclocking
 
-  modport driver_mp ( clocking driver_cb, input i_Rst_L, i_Clk );
-  modport monitor_mp ( clocking monitor_cb, input i_Rst_L, i_Clk );
+  modport driver_mp ( clocking driver_cb, input i_Rst_L );
+  modport monitor_mp ( clocking monitor_cb, input i_Rst_L );
 endinterface

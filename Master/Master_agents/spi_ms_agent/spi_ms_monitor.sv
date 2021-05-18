@@ -42,7 +42,7 @@ class spi_ms_monitor extends uvm_monitor;
       `uvm_info(get_full_name(),trn.convert2string(), UVM_HIGH)
       monitor_ap.write(trn);
 
-     wait(ms_monitor_interface.monitor_mp.SPI_CS_n);
+     wait(ms_monitor_interface.SPI_CS_n);
     end
   endtask : run_phase
 endclass 

@@ -28,12 +28,12 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
     forever begin
       seq_item_port.get_next_item(trn);
       forever begin
-        @(posedge `D_M_IF);
+        @(`D_M_IF);
         if(`D_M_IF.o_TX_Ready) begin
           `uvm_info(get_full_name(),$sformatf("\ndata_m  = %h \n", trn.data_m), UVM_HIGH)
           `D_M_IF.i_TX_DV <= 1;
           `D_M_IF.i_TX_Byte <= trn.data_m;
-          @(posedge `D_M_IF);
+          @(`D_M_IF);
           break;
         end
       end
@@ -47,7 +47,7 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
     `D_M_IF.i_TX_DV <= 0;
     `D_M_IF.i_TX_Byte <= 0;
     repeat(2)
-      @(m_driver_interface.i_Clk);
+      @(`D_M_IF);
     m_driver_interface.i_Rst_L = 1;
     
   endtask : do_reset

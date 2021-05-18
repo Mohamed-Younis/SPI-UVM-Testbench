@@ -19,6 +19,6 @@ interface spi_ms_interface();
     input SPI_MOSI;
   endclocking
 
-  modport driver_mp ( clocking driver_cb, input SPI_CS_n, SPI_Clk);
-  modport monitor_mp ( clocking monitor_cb, input SPI_CS_n, SPI_Clk );
+  modport driver_mp ( clocking driver_cb, input SPI_CS_n);
+  modport monitor_mp ( clocking monitor_cb, input SPI_CS_n);
 endinterface
