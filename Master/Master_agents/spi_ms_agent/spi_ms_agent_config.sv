@@ -1,5 +1,5 @@
-`ifndef SPI_Ms_AGENT_CONFIG
-`define SPI_Ms_AGENT_CONFIG
+`ifndef SPI_MS_AGENT_CONFIG
+`define SPI_MS_AGENT_CONFIG
 
 class spi_ms_agent_config extends uvm_object;
 
