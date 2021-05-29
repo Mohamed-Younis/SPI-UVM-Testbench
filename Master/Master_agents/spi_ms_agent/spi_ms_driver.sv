@@ -23,17 +23,17 @@ class spi_ms_driver extends uvm_driver #(spi_seq_item);
   endfunction : build_phase
 
   task run_phase(uvm_phase phase);
-    //#1 // the SPI_CS_n signal start 0 at time 0 so we wait for it to change 
     forever begin
+      ms_driver_interface.SPI_MISO <= 1'bZ;
       seq_item_port.get_next_item(trn);
-      ms_driver_interface.SPI_MISO <= trn.data_ms[7]; // preload the first bit since the first in mood0 edge is the sampling edge
       wait(!ms_driver_interface.SPI_CS_n)
+      ms_driver_interface.SPI_MISO <= trn.data_ms[7]; // preload the first bit since the first in mood0 edge is the sampling edge
       `uvm_info(get_full_name(),$sformatf("\ndata_ms = %h \n", trn.data_ms), UVM_HIGH)
       for (int i = 6; i >= 0; i--) begin
         @(`D_MS_IF)
         `D_MS_IF.SPI_MISO <= trn.data_ms[i];
       end
-      wait(ms_driver_interface.SPI_CS_n)
+      wait(ms_driver_interface.SPI_CS_n);
       seq_item_port.item_done(trn);
     end
 

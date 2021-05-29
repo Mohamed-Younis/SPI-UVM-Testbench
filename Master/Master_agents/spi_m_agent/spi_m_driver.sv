@@ -47,7 +47,7 @@ class spi_m_driver extends uvm_driver #(spi_seq_item);
     `D_M_IF.i_TX_DV <= 0;
     `D_M_IF.i_TX_Byte <= 0;
     repeat(2)
-      @(`D_M_IF);
+    @(`D_M_IF);
     m_driver_interface.i_Rst_L = 1;
     
   endtask : do_reset

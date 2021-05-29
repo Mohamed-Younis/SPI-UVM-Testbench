@@ -3,7 +3,7 @@ module master_tb_top();
   import spi_test_pkg::*;
 
   bit Clk;
-  localparam mode = 0;
+  parameter mode = 1;
 
   spi_m_interface m_interface(Clk);
   spi_ms_interface ms_interface();
@@ -24,6 +24,8 @@ module master_tb_top();
     .o_SPI_CS_n(ms_interface.SPI_CS_n)
   );
 
+  bind dut master_assertions #(.SPI_MODE(SPI_MODE)) dut_assert (.*);
+
   initial begin
     forever #5 Clk = !Clk;
   end
@@ -31,6 +33,23 @@ module master_tb_top();
     uvm_config_db #(virtual spi_m_interface)::set(null, "uvm_test_top", "a_m_interface", m_interface);
     uvm_config_db #(virtual spi_ms_interface)::set(null, "uvm_test_top", "a_ms_interface", ms_interface);
     uvm_config_db #(int)::set(null, "uvm_test_top", "mode", mode);
+  end
+
+  initial begin
+    $dumpfile ("dut_signals.vcd");
+    $dumpvars (1, dut.i_Clk,
+                  dut.i_Rst_L,
+                  dut.i_TX_Count, 
+                  dut.i_TX_Byte,
+                  dut.i_TX_DV, 
+                  dut.o_TX_Ready,
+                  dut.o_RX_Count,  
+                  dut.o_RX_DV,     
+                  dut.o_RX_Byte,   
+                  dut.o_SPI_Clk,
+                  dut.i_SPI_MISO,
+                  dut.o_SPI_MOSI,
+                  dut.o_SPI_CS_n);
   end
 
   initial begin

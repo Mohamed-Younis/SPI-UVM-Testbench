@@ -11,6 +11,7 @@ sv:
 	+incdir+../Master_env ../Master_env/spi_env_pkg.sv \
 	+incdir+../Master_test ../Master_test/spi_test_pkg.sv \
 	../Dut/SPI_Master.v ../Dut/SPI_Master_With_Single_CS.v \
+	../Testbench/master_assertions.sv \
 	../Testbench/master_tb_top.sv
 
 	vopt master_tb_top -o master_tb_top_opt

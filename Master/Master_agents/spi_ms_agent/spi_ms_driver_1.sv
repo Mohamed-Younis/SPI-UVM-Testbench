@@ -20,8 +20,8 @@ class spi_ms_driver_1 extends spi_ms_driver;
   endfunction : build_phase
 
   task run_phase(uvm_phase phase);
-    //#1 // the SPI_CS_n signal start 0 at time 0 so we wait for it to change 
     forever begin
+      ms_driver_interface.SPI_MISO <= 1'bZ;
       seq_item_port.get_next_item(trn);
       wait(!ms_driver_1_interface.SPI_CS_n)
       `uvm_info(get_full_name(),$sformatf("\ndata_ms = %h \n", trn.data_ms), UVM_HIGH)
@@ -29,7 +29,7 @@ class spi_ms_driver_1 extends spi_ms_driver;
         @(`D_MS_IF_1)
         `D_MS_IF_1.SPI_MISO <= trn.data_ms[i];
       end
-      wait(ms_driver_1_interface.SPI_CS_n)
+      wait(ms_driver_1_interface.SPI_CS_n);
       seq_item_port.item_done(trn);
     end
 

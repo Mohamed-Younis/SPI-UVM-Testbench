@@ -179,8 +179,8 @@ module SPI_Master_With_Single_CS
   end
 
   assign o_SPI_CS_n = r_CS_n;
-
-  assign o_TX_Ready  = ((r_SM_CS == IDLE) | (r_SM_CS == TRANSFER && w_Master_Ready == 1'b1 && r_TX_Count > 0)) & ~i_TX_DV;
+ //modified to signal that the master is not ready to recieve data when reset is low
+  assign o_TX_Ready  = !i_Rst_L ? 1'b0 : ((r_SM_CS == IDLE) | (r_SM_CS == TRANSFER && w_Master_Ready == 1'b1 && r_TX_Count > 0)) & ~i_TX_DV;
 
 endmodule // SPI_Master_With_Single_CS
 
