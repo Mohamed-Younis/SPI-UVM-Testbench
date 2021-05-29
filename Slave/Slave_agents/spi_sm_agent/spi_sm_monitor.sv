@@ -30,11 +30,11 @@ class spi_sm_monitor extends uvm_monitor;
       trn = spi_seq_item::type_id::create("trn");
       wait(!sm_monitor_interface.SPI_CS_n);
       fork
-        foreach(trn.data_m[i]) begin
+        foreach(trn.data_s[i]) begin
           @(sm_monitor_interface.monitor_cb);
           trn.data_s[i] = `M_SM_IF.SPI_MOSI;
         end
-        foreach(trn.data_ms[i]) begin
+        foreach(trn.data_sm[i]) begin
           @(sm_monitor_interface.monitor_cb);
           trn.data_sm[i] = `M_SM_IF.SPI_MISO;
         end

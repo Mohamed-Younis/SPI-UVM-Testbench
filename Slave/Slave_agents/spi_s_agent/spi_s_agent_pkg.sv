@@ -1,4 +1,4 @@
-package spi_m_agent_pkg;
+package spi_s_agent_pkg;
   import uvm_pkg::*;
   
   `include "uvm_macros.svh"

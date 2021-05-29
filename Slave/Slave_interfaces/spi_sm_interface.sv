@@ -1,4 +1,4 @@
-interface spi_ms_interface();
+interface spi_sm_interface();
 
   // SPI Interface
   logic SPI_Clk;

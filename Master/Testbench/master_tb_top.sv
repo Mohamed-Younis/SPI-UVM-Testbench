@@ -3,7 +3,7 @@ module master_tb_top();
   import spi_test_pkg::*;
 
   bit Clk;
-  parameter mode = 1;
+  parameter mode = 0;
 
   spi_m_interface m_interface(Clk);
   spi_ms_interface ms_interface();

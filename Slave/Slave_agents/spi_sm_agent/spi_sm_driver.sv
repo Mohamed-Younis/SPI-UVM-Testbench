@@ -10,7 +10,6 @@ class spi_sm_driver extends uvm_driver #(spi_seq_item);
   spi_seq_item trn;
   virtual spi_sm_interface sm_driver_interface;
   spi_sm_agent_config sm_agent_config;
-  bit generated_SPI_Clk;
 
   function new(string name = "spi_sm_driver", uvm_component parent = null);
     super.new(name, parent);
@@ -25,15 +24,27 @@ class spi_sm_driver extends uvm_driver #(spi_seq_item);
 
   task run_phase(uvm_phase phase);
     forever begin
+      #100;
       seq_item_port.get_next_item(trn);
-      sm_driver_interface.SPI_MISO <= trn.data_sm[7]; // preload the first bit since the first in mood0 edge is the sampling edge
-      wait(!sm_driver_interface.SPI_CS_n)
+      sm_driver_interface.SPI_Clk = 0;
+      sm_driver_interface.SPI_CS_n = 0;
+      fork begin
+        #10;
+        forever begin
+          #20 sm_driver_interface.SPI_Clk = !sm_driver_interface.SPI_Clk;
+        end
+      end
+      join_none
+      sm_driver_interface.SPI_MOSI <= trn.data_sm[7]; // preload the first bit since the first in mood0 edge is the sampling edge
       `uvm_info(get_full_name(),$sformatf("\ndata_sm = %h \n", trn.data_sm), UVM_HIGH)
       for (int i = 6; i >= 0; i--) begin
         @(`D_SM_IF)
-        `D_SM_IF.SPI_MISO <= trn.data_sm[i];
+        `D_SM_IF.SPI_MOSI <= trn.data_sm[i];
       end
-      wait(sm_driver_interface.SPI_CS_n)
+      @(`D_SM_IF)
+      #10;
+      sm_driver_interface.SPI_CS_n = 1;
+      disable fork;
       seq_item_port.item_done(trn);
     end
 

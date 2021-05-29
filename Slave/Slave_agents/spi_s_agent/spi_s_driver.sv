@@ -34,7 +34,7 @@ class spi_s_driver extends uvm_driver #(spi_seq_item);
       @(`D_S_IF);
       seq_item_port.item_done(trn);
       `D_S_IF.i_TX_DV <= 0;
-      wait(`D_S_IF.o_RTX_DV);
+      wait(`D_S_IF.o_RX_DV);
     end
   endtask : run_phase
 
