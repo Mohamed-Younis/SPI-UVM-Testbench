@@ -25,7 +25,7 @@ interface spi_sm_interface();
     input SPI_MOSI;
   endclocking
 
-    clocking monitor_cb_1 @(negedge SPI_Clk);
+  clocking monitor_cb_1 @(negedge SPI_Clk);
     default input #1 output #1;
     input SPI_MISO;
     input SPI_MOSI;
@@ -34,5 +34,5 @@ interface spi_sm_interface();
   modport driver_mp ( clocking driver_cb, output SPI_CS_n);
   modport driver_mp_1 ( clocking driver_cb_1, output SPI_CS_n);
   modport monitor_mp ( clocking monitor_cb, input SPI_CS_n);
-  modport monitor_mp_1 ( clocking monitor_cb_1, input SPI_CS_n);
+  modport monitor_mp_1 ( clocking monitor_cb_1, input SPI_CS_n, SPI_Clk);
 endinterface

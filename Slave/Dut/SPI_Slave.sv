@@ -66,7 +66,7 @@ module SPI_Slave
   //              the "in" side captures data on the trailing edge of clock
   assign w_CPHA  = (SPI_MODE == 1) | (SPI_MODE == 3);
 
-  assign w_SPI_Clk = w_CPHA ? i_SPI_Clk : ~i_SPI_Clk;
+  assign w_SPI_Clk = w_CPHA ? ~i_SPI_Clk : i_SPI_Clk;
 
 
 
@@ -135,7 +135,7 @@ module SPI_Slave
 
   // Control preload signal.  Should be 1 when CS is high, but as soon as
   // first clock edge is seen it goes low.
-  always @(posedge w_SPI_Clk or posedge i_SPI_CS_n)
+  always @(negedge w_SPI_Clk or posedge i_SPI_CS_n)//****************changed to neg edge from posedge
   begin
     if (i_SPI_CS_n)
     begin
@@ -151,10 +151,10 @@ module SPI_Slave
   // Purpose: Transmits 1 SPI Byte whenever SPI clock is toggling
   // Will transmit read data back to SW over MISO line.
   // Want to put data on the line immediately when CS goes low.
-  always @(posedge w_SPI_Clk or posedge i_SPI_CS_n)
+  always @(negedge w_SPI_Clk or posedge i_SPI_CS_n) //****************changed to neg edge from posedge
   begin
     if (i_SPI_CS_n) begin
-      r_TX_Bit_Count <= 3'b111;  // Send MSb first
+      r_TX_Bit_Count <= w_CPHA ? 3'b111 : 3'b110;  // Send MSb first //****************changed from 111
       r_SPI_MISO_Bit <= r_TX_Byte[3'b111];  // Reset to MSb
     end
     else

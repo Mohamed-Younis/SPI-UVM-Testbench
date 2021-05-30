@@ -24,14 +24,15 @@ class spi_sm_monitor_1 extends spi_sm_monitor;
     forever begin
       trn = spi_seq_item::type_id::create("trn");
       wait(!sm_monitor_interface_1.SPI_CS_n);
+      #1 //negedge happends right after the cs is low 
       fork
-        foreach(trn.data_s[i]) begin
-          @(sm_monitor_interface_1.monitor_cb_1);
-          trn.data_s[i] = `M_SM_IF_1.SPI_MOSI;
-        end
         foreach(trn.data_sm[i]) begin
-          @(sm_monitor_interface_1.monitor_cb_1);
-          trn.data_sm[i] = `M_SM_IF_1.SPI_MISO;
+          @(`M_SM_IF_1);
+          trn.data_sm[i] = `M_SM_IF_1.SPI_MOSI;
+        end
+        foreach(trn.data_s[i]) begin
+          @(`M_SM_IF_1)
+          trn.data_s[i] = `M_SM_IF_1.SPI_MISO;
         end
       join
       `uvm_info(get_full_name(),trn.convert2string(), UVM_HIGH)

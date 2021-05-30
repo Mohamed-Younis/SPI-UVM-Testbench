@@ -23,11 +23,13 @@ class spi_sm_driver extends uvm_driver #(spi_seq_item);
   endfunction : build_phase
 
   task run_phase(uvm_phase phase);
-    forever begin
-      #100;
-      seq_item_port.get_next_item(trn);
       sm_driver_interface.SPI_Clk = 0;
+      sm_driver_interface.SPI_CS_n = 1;
+    forever begin
+      sm_driver_interface.SPI_Clk = 0;
+      #100;
       sm_driver_interface.SPI_CS_n = 0;
+      seq_item_port.get_next_item(trn);
       fork begin
         #10;
         forever begin
